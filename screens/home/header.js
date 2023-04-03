@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity, Alert, Image } from "react-native";
 import { Ionicons , Octicons} from "@expo/vector-icons";
 
 export default function Header({ navigation }) {
   function handlePress() {
     Alert.alert(
-      'Notification',
-      'You have a new notification!',
-      [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
+      'الأشعارات',
+      'لا يوجد اشعارات!',
+      [{ text: 'حسناً', onPress: () => console.log('OK Pressed') }],
       { cancelable: true }
     );
   }
@@ -16,12 +16,12 @@ export default function Header({ navigation }) {
       <View>
         <TouchableOpacity onPress={handlePress} >
         
-          <Ionicons name="ios-notifications-outline" size={30} color="#2D2D2D" />
+          <Ionicons name="ios-notifications-outline" size={30} color="#12355a" />
 
         </TouchableOpacity>
         <View
             style={{
-              backgroundColor: "yellow",
+              backgroundColor: "#12355a",
               borderRadius: 90,
               width: 15,
               height: 15,
@@ -35,28 +35,21 @@ export default function Header({ navigation }) {
             }}
           >
             <View>
-              <Text style={{ fontSize: 7, textAlign: "center" }}>12</Text>
+              <Text style={{ fontSize: 7, textAlign: "center", color:"white" }}>12</Text>
             </View>
           </View>
       </View>
-      <View style={{ marginLeft: 20 }}>
-        <TouchableOpacity>
-          <Ionicons name="ios-search" size={30} color="#2D2D2D" />
-        </TouchableOpacity>
-      </View>
-      <View style={{ marginLeft: 20 }}>
-        <TouchableOpacity>
-        <Octicons name="diff-added" size={28} color="#2D2D2D" />
-        </TouchableOpacity>
-      </View>
-      <View style={{ flex: 1, paddingLeft:120 }}>
-        <Text style={{ fontSize: 18 }}>Home</Text>
+      <View style={{ flex: 1, paddingLeft:90 }}>
+        <Image 
+          source={require('../../assets/McciLogo.png')}
+          style={{ width: 120, height: 40, marginRight: 35}}
+        />
       </View>
     
 
       <View style={{ width: 20 , marginLeft:20}}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Ionicons name="ios-menu" size={30} color="#2D2D2D" />
+          <Ionicons name="ios-menu" size={30} color="#12355a" />
         </TouchableOpacity>
       </View>
     </View>

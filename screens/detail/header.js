@@ -7,7 +7,7 @@ export default function Header({ navigation }) {
     <View style={styles.header}>
       <View style={{ width: 20 }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="ios-arrow-back" size={30} color="#2D2D2D" />
+          <Ionicons name="ios-arrow-back" size={30} color="#12355a" />
         </TouchableOpacity>
       </View>
       <View style={{ flex: 1 }}></View>

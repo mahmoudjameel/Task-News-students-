@@ -1,73 +1,57 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  Image
-} from "react-native";
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, Image } from "react-native";
 
 export default function List({ navigation }) {
   const [list, setList] = useState([
     {
       id: 1,
-      title: "Test",
-          image: require("../../assets/wish-1.png")
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
       id: 2,
-      title: "Test",
-          image: require("../../assets/wish-2.png")
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
       id: 3,
-      title: "Test",
-          image: require("../../assets/wish-3.png")
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
       id: 4,
-      title: "Test",
-          image: require("../../assets/wish-4.png")
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
-      id: 5,
-      title: "Test",
-      
-      image: require("../../assets/wish-5.png")
+      id: 4,
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
-      id: 6,
-      title: "Test",
-      
-      image: require("../../assets/wish-6.png")
+      id: 4,
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     },
     {
-      id: 7,
-      title: "Test",
-      
-      image: require("../../assets/wish-1.png")
+      id: 4,
+      title: "ملتقى المدينة المنورة لريادة الأعمال",
+      image: require("../../assets/News.jpg")
     }
   ]);
 
   return (
     <View style={styles.container}>
       <FlatList
-        style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
-        keyExtractor={item => item.id}
+        keyExtractor={item => item.id.toString()}
         data={list}
-        numColumns={2}
+        numColumns={1}
         renderItem={({ item }) => (
-          <View style={{ marginHorizontal: 3, marginBottom: 20 }}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate("Detail", item)}
-            >
-              <Image source={item.image} />
-            </TouchableOpacity>
-           
-            <Text style={{textAlign:'center'}}>{item.title}</Text>
-          </View>
+          <TouchableOpacity style={styles.itemContainer} onPress={() => navigation.navigate("Detail", {title: item.title, image: item.image})}>
+            <Image source={item.image} style={styles.image} />
+            <Text style={styles.title}>{item.title}</Text>
+          </TouchableOpacity>
         )}
       />
     </View>
@@ -77,7 +61,25 @@ export default function List({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "pink"
-    paddingHorizontal: 24
+    padding: 10
+  },
+  itemContainer: {
+    flex: 1,
+    alignItems: "center",
+    margin: 10,
+    borderRadius: 10,
+    backgroundColor: "#fff"
+  },
+  image: {
+    width: "100%",
+    height: 150,
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    padding: 10,
+    textAlign: "center"
   }
 });

@@ -1,9 +1,9 @@
 import React, { useState, useRef } from 'react';
-import { View, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Animated } from 'react-native';
+import { View, TextInput, Image, StyleSheet, TouchableWithoutFeedback, Animated, TouchableOpacity, Text, Linking } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 
- const ProfileScreen = () => {
+ const ContactScreen = () => {
   const [input1Value, setInput1Value] = useState('');
   const [input2Value, setInput2Value] = useState('');
   const [input3Value, setInput3Value] = useState('');
@@ -33,34 +33,25 @@ import { Ionicons } from '@expo/vector-icons';
 
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require('../assets/home-3.png')} />
+      <Image style={styles.image} source={require('../assets/logoColor2.png')} />
+      <Text style={styles.title}>تواصل معنا</Text>
       <View style={styles.inputContainer}>
-        <MaterialIcons name="email" size={24} color="gray" />
-        <TextInput
-          placeholder="email"
-          value={input1Value}
-          onChangeText={setInput1Value}
-          style={styles.input}
-        />
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('mailto:info@mcci.org.sa')}>
+          <Text style={styles.buttonText}>info@mcci.org.sa</Text>
+          <MaterialIcons name="email" size={24} color="#fff" />
+        </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
-        <MaterialIcons name="lock" size={24} color="gray" />
-        <TextInput
-          placeholder="password"
-          value={input2Value}
-          onChangeText={setInput2Value}
-          style={styles.input}
-          secureTextEntry={true}
-        />
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('tel:+966148258366')}>
+          <Text style={styles.buttonText}>+966 14 825 8366</Text>
+          <MaterialIcons name="phone" size={24} color="#fff"/>
+        </TouchableOpacity>
       </View>
       <View style={styles.inputContainer}>
-        <MaterialIcons name="phone" size={24} color="gray" />
-        <TextInput
-          placeholder="phone"
-          value={input3Value}
-          onChangeText={setInput3Value}
-          style={styles.input}
-        />
+        <TouchableOpacity style={styles.buttonContainer} onPress={() => Linking.openURL('https://mcci.org.sa/')}>
+          <Text style={styles.buttonText}>لزيارة موقعنا الإلكتروني</Text>
+          <MaterialIcons name="web" size={24} color="#fff" />
+        </TouchableOpacity>
       </View>
       <TouchableWithoutFeedback onPress={toggleSocialMediaIcons}>
         <View style={styles.socialMediaButton}>
@@ -87,18 +78,18 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   image: {
-    width: '80%',
+    width: 180,
     height: 200,
     resizeMode: 'cover',
-    marginBottom: 20,
+    marginBottom: 10,
     borderRadius:20
 
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#f2f2f2',
-    borderRadius: 25,
+    backgroundColor: '#12355a',
+    borderRadius: 5,
     padding: 10,
     marginBottom: 20,
     width: '80%',
@@ -121,7 +112,7 @@ const styles = StyleSheet.create({
   },
   socialMediaButton: {
     position: 'absolute',
-    bottom: 80,
+    bottom: 40,
     right: 20,
     flexDirection: 'row',
     alignItems: 'center',
@@ -140,8 +131,8 @@ const styles = StyleSheet.create({
   },
   socialMediaIcons: {
     position: 'absolute',
-    bottom: 140,
-    right: 20,
+    bottom: 40,
+    right: 100,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#000',
@@ -154,6 +145,32 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 15,
   },
+  buttonContainer: {
+    flexDirection: 'row',
+    backgroundColor: '#12355a',
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    width: 290,
+    height: 40, 
+    justifyContent: 'center'
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    paddingRight: 6
+  },
+  title: {
+    fontSize: 18,
+    marginBottom: 26,
+    fontWeight: 'bold',
+    color: '#12355a',
+    backgroundColor:'#cfd6de',
+    padding: 16,
+    width: 300,
+    textAlign: 'center'
+  },
 });
 
-export default ProfileScreen;
+export default ContactScreen;

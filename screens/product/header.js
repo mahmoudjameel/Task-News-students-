@@ -8,11 +8,16 @@ export default function Header({ navigation }) {
     
       <View style={{ width: 20 }}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name="ios-arrow-back" size={30} color="#2D2D2D" />
+          <Ionicons name="ios-arrow-back" size={30} color="#12355a" />
         </TouchableOpacity>
       </View>
       <View style={{ flex: 1 }}>
-        <Text style={{ fontSize: 18, textAlign: "center" }}>جميع الاخبار</Text>
+      <Text style={{ fontSize: 18, textAlign: "center" }}>جميع الاخبار</Text>
+      </View>
+      <View style={{ width: 20 , marginLeft:20}}>
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <Ionicons name="ios-menu" size={30} color="#12355a" />
+        </TouchableOpacity>
       </View>
       <View>
      

@@ -1,21 +1,16 @@
-import React, { Dimensions } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
-
+import React from "react";
+import { StyleSheet, View, Text, Image, ScrollView } from "react-native";
 import Header from "./header";
 
-export default function Detail(props) {
+export default function Detail({ route, navigation, props }) {
+  const { title, image } = route.params;
+  
   return (
     <View style={styles.container}>
-      <Header {...props} />
+      <Header navigation={navigation} />
+      
 
-      {/* Add Wishlit - Cart */}
+      {/* style */}
       <View
         style={{
           zIndex: 1,
@@ -38,7 +33,7 @@ export default function Detail(props) {
           <View>
             <Image
               style={{ width: "100%", height: 300 }}
-              source={require("../../assets/Detail/01.png")}
+              source={image}
               alt="product cut"
               resizeMode="cover"
             />
@@ -57,25 +52,26 @@ export default function Detail(props) {
             {/* left */}
             <View >
               <View  >
-                <Text style={{ fontSize: 18 }}>عنوان الخبر</Text>
+                <Text style={{ fontSize: 18 }}>{title}</Text>
               </View>
-             
             </View>
-
-           
           </View>
-
-       
-            
 
           {/* Fit details */}
           <View style={{ padding: 5, justifyContent:'center' , alignContent:'center', alignItems:'center'}}>
             <View>
-              <Text style={{ fontSize: 18, color: "gray" }}>تفاصيل الخبر</Text>
+              {/* <Text style={{ fontSize: 18, color: "gray" }}>تفاصيل الخبر</Text> */}
             </View>
             <View style={{paddingTop:10}}>
-              <Text>sfdsfdaljf;afljaldjalgjaklgjaffffffffffffdjfshdfhbsdbfdsbbfdshhsfdhfdshjfsdlfja lfjasdj</Text>
-              <Text>sfdsfdaljf;afljaldjalgjaklgja lfjadsjfjsdjfjsdjfdsjsdlfjasdj</Text>
+              <Text style={{textAlign: 'right', padding:2}}>شاركت غرفة المدينة المنورة يوم الأحد الموافق 2023/03/19م في ملتقى المدينة المنورة لريادة الأعمال الذي تنظمه الهيئة العامة للمنشآت الصغيرة والمتوسطة
+
+                  " منشآت" بالتعاون مع برنامج خدمة ضيوف الرحمن وهيئة تطوير المدينة المنورة في مقر " مركز دعم المنشآت".
+
+                  ويهدف الملتقى إلى إطلاع الفئة المستهدفة على الخطط والاستراتيجيات للمنطقة والتعريف بالفرص الاستثمارية بمنطقة المدينة المنورة، وفتح باب التواصل مابين المشاركين والجهات الداعمة، إلى جانب التعريف ببرامج الدعم الحكومية من خلال تقديم الجهات لخدماتهم وطرق الاستفادة منهم وتمكين المشاركين من موائمة خططهم مع خطط الجهات الحكومية. 
+
+                  كما يستهدف الملتقى مشغلي المواقع التاريخية وملاك المواقع الإثرائية، حملات الحج والعمرة للداخل والخارج، شركات التطوير العقاري للفنادق، الفنادق،أنشطة مشغلي الجولات السياحية،الإرشاد السياحي، قطاع إعاشة الحجاج والمعتمرين. 
+
+                  ومن منطلق حرص غرفة المدينة المنورة على دعم رواد الأعمال وأصحاب المنشآت في جميع القطاعات والأنشطة التجارية بالمنطقة؛ شاركت بمعرض مصاحب للتعريف عن الخدمات التي تقدمها لقطاع الأعمال و بورقة عمل لمناقشة و حصر التحديات التي تواجه قطاع خدمات الحج والعمره. </Text>
             </View>
           </View>
         </ScrollView>

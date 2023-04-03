@@ -15,12 +15,12 @@ export default function Season({ navigation }) {
         <View style={{ flex: 1 }}>
         <TouchableOpacity onPress={() => navigation.navigate("Product")}>
 
-          <Text style={{fontWeight:'bold'}} >جميع الاخبار</Text>
+        <Text style={{fontWeight:'bold', textDecorationLine: 'underline',}} >جميع الاخبار</Text>
           </TouchableOpacity>
 
         </View>
         <View>
-            <Text > الاخبار</Text>
+        <Text style={{fontWeight:'bold', color:'#12355a', fontSize:15}}> الاخبار</Text>
         </View>
       </View>
 
@@ -28,10 +28,11 @@ export default function Season({ navigation }) {
       <View style={{ marginHorizontal: 15 }}>
         <TouchableOpacity onPress={() => navigation.navigate("Product")}>
           <Image
-            style={{ width: "100%" }}
-            source={require("../../assets/home-summer.png")}
+            style={{ width: "100%", borderRadius:5, overflow:"hidden", marginBottom:15 ,}}
+            source={require("../../assets/newsHome.png")}
             resizeMode="cover"
           />
+          <View style={styles.overlay} />
         </TouchableOpacity>
       </View>
     </View>
@@ -42,5 +43,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff"
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 15,
+    backgroundColor: 'rgba(18,53,90,0.4)',
   }
 });
